@@ -49,10 +49,6 @@ public class SwiftFlutterBranchSdkPlugin: NSObject, FlutterPlugin, FlutterStream
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any] = [:]) -> Bool {
         Branch.getInstance().registerPluginName(PLUGIN_NAME, version:  getPluginVersion())
 
-        if #available(iOS 15.0, *) {
-            Branch.getInstance().checkPasteboardOnInstall()
-        }
-
         Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
             if error == nil {
                 print("Branch InitSession params: \(String(describing: params as? [String: Any]))")

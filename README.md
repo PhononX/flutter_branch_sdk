@@ -1,3 +1,20 @@
+This is a fork of the recommended [Flutter Branch SDK]([https://branch.io](https://github.com/RodrigoSMarques/flutter_branch_sdk/)) which currently enables Branch's NativeLink™ Deferred Deep Linking.
+
+NativeLink is an advanced feature that allows a branch link to open a specific deeplink right after an app is installed on iOS. However, it also requires an additional permission for an app to read into the user's clipboard.
+
+While disabled in the native SDK, the Flutter SDK enables this in the App's `AppDelegate` class. This fork simply turns it off.
+
+```
+        if #available(iOS 15.0, *) {
+            Branch.getInstance().checkPasteboardOnInstall()
+        }
+```
+
+Ideally this could be built into the official flutter branch SDK so we can go back to using it. PhononX created an issue here to track it:
+https://github.com/BranchMetrics/android-branch-deep-linking-attribution/issues/1233
+
+---
+
 # Branch SDK Plugin
 
 [![Branch](https://github.com/RodrigoSMarques/flutter_branch_sdk/blob/master/assets/branch.png?raw=true)](https://branch.io)
